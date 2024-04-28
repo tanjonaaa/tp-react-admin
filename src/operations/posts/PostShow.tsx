@@ -1,4 +1,5 @@
 import { ReferenceField, Show, SimpleShowLayout, TextField } from "react-admin";
+import CommentsButton from "../../components/commentsButton";
 
 export default function PostShow() {
   return (
@@ -8,6 +9,7 @@ export default function PostShow() {
         <ReferenceField source="userId" reference="users" />
         <TextField source="title" />
         <TextField source="body" />
+        <CommentsButton />
       </SimpleShowLayout>
     </Show>
   );
