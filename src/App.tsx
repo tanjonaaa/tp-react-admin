@@ -1,19 +1,13 @@
-import { Admin, ListGuesser, Resource } from "react-admin";
+import { Admin, Resource } from "react-admin";
 import { dataProvider } from "./dataProvider";
-import { PostCreate, PostEdit, PostList, PostShow } from "./posts";
 import { UserList } from "./users";
-import { CommentList } from "./commets";
+import posts from "./operations/posts";
+import comments from "./operations/comments";
 
 export const App = () => (
   <Admin dataProvider={dataProvider}>
-    <Resource
-      name="posts"
-      list={PostList}
-      show={PostShow}
-      edit={PostEdit}
-      create={PostCreate}
-    />
+    <Resource name="posts" {...posts} />
     <Resource name="users" list={UserList} recordRepresentation="name" />
-    <Resource name="comments" list={CommentList} />
+    <Resource name="comments" {...comments} />
   </Admin>
 );
